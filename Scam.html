@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Park - Espace Adhérent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .bg-fp-yellow {
+            background-color: #ffd600;
+        }
+        .hover\:bg-fp-yellow-dark:hover {
+            background-color: #e6c000;
+        }
+        .focus\:ring-fp-yellow:focus {
+            --tw-ring-color: #ffd600;
+        }
+    </style>
+</head>
+<body class="bg-black text-white flex items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-md">
+        <!-- Logo -->
+        <div class="text-center mb-10">
+            <img src="https://www.fitnesspark.fr/wp-content/themes/fitnesspark/images/logo-fitness-park.svg" alt="Logo Fitness Park" class="w-48 mx-auto">
+        </div>
+
+        <div class="bg-[#1a1a1a] p-8 rounded-2xl shadow-2xl shadow-fp-yellow/10">
+            <h1 class="text-2xl font-black text-center mb-2">ACCÈS ESPACE ADHÉRENT</h1>
+            <p class="text-zinc-400 text-center mb-8">Connecte-toi pour dépasser tes limites !</p>
+
+            <!-- Message d'erreur personnalisé -->
+            <div id="errorMessage" class="hidden bg-red-600/80 border border-red-500 text-white font-bold text-center p-4 rounded-lg mb-6">
+                <!-- Le message s'affichera ici -->
+            </div>
+
+            <!-- Formulaire de connexion -->
+            <form id="loginForm">
+                <div class="mb-5">
+                    <label for="email" class="block mb-2 text-sm font-bold text-zinc-300">NUMÉRO D'ADHÉRENT OU E-MAIL</label>
+                    <input type="text" id="email" name="email" class="w-full px-4 py-3 bg-zinc-800 border-2 border-zinc-700 rounded-lg focus:outline-none focus:border-fp-yellow transition-colors duration-300" placeholder="Ex: Jean.Dupont@email.com">
+                </div>
+                <div class="mb-6">
+                    <label for="password" class="block mb-2 text-sm font-bold text-zinc-300">MOT DE PASSE</label>
+                    <input type="password" id="password" name="password" class="w-full px-4 py-3 bg-zinc-800 border-2 border-zinc-700 rounded-lg focus:outline-none focus:border-fp-yellow transition-colors duration-300" placeholder="••••••••••••">
+                </div>
+                
+                <div class="flex items-center justify-between mb-6">
+                    <a href="#" class="text-sm text-fp-yellow hover:underline">Mot de passe oublié ?</a>
+                </div>
+
+                <button type="submit" class="w-full bg-fp-yellow text-black font-black py-4 rounded-lg hover:bg-fp-yellow-dark transition-all duration-300 transform hover:scale-105">
+                    SE CONNECTER
+                </button>
+            </form>
+
+            <div class="mt-8 text-center">
+                <p class="text-zinc-400">Pas encore de compte ?</p>
+                <a href="#" class="font-bold text-fp-yellow hover:underline">Activer mon Espace Adhérent</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // On récupère le formulaire et le conteneur du message d'erreur
+        const loginForm = document.getElementById('loginForm');
+        const errorMessageDiv = document.getElementById('errorMessage');
+
+        // On écoute l'événement 'submit' du formulaire
+        loginForm.addEventListener('submit', function(event) {
+            // On empêche le formulaire de s'envoyer réellement, ce qui rechargerait la page
+            event.preventDefault();
+
+            // On définit le message d'erreur et on l'affiche
+            errorMessageDiv.innerText = "EH POTO T'ES CON OU QUOI ?";
+            errorMessageDiv.classList.remove('hidden');
+
+            // Petite animation pour attirer l'oeil
+            errorMessageDiv.classList.add('animate-bounce');
+            setTimeout(() => {
+                errorMessageDiv.classList.remove('animate-bounce');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
